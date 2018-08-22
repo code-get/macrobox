@@ -10,8 +10,9 @@ This is the official Development workstation based on CentOS provided by a Vagra
 * See: [Chromium OS Developer Guide](https://chromium.googlesource.com/chromiumos/docs/+/master/developer_guide.md)
 
 ### Requirements
-Vagrant 2.0.2
-VirtualBox 5.2.8r121009
+Vagrant 2.1.2
+Fabric 1.14.0
+VirtualBox 5.2.10
 
 ## Instructions
 
@@ -25,6 +26,12 @@ $ vagrant up
 
 ```
 $ vagrant ssh
+```
+
+### Send Commands over Fabric
+
+```
+$ fab cmd:"cat /etc/redhat-release"
 ```
 
 ### Configure Macroweb Development Project
