@@ -1,0 +1,9 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "centos/7"
+  config.vm.hostname = "macroweb"
+  config.vm.network "forwarded_port", guest: 80, host: 8080
+  config.vm.provision "shell", path: "scripts/init.sh"
+end
