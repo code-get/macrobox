@@ -1,7 +1,7 @@
 # MACROBox Development Environment
 Copyright 2018 (c) MACROmantic
 Written by: christopher landry <macromantic (at) outlook.com>
-Version: 0.0.1
+Version: 0.0.2
 Date: 22-august-2018
 License: GPLv3
 
@@ -58,3 +58,5 @@ $ vagrant provision
 - Initial check-in
 - Build with centos/7 Vagrant box on virtualbox
 
+### Version 0.0.2
+- Added Python 3.7
