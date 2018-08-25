@@ -1,7 +1,7 @@
 # MACROBox Development Environment
 Copyright 2018 (c) MACROmantic
 Written by: christopher landry <macromantic (at) outlook.com>
-Version: 0.0.2
+Version: 0.0.3
 Date: 22-august-2018
 License: GPLv3
 
@@ -60,3 +60,7 @@ $ vagrant provision
 
 ### Version 0.0.2
 - Added Python 3.7
+- Added fabfile
+
+### Version 0.0.3
+- Added Django

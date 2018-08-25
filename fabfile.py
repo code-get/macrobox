@@ -15,7 +15,7 @@ def osinfo():
     run("cat /etc/redhat-release")
 
 def pyversion():
-    run("python3.7 --version")
+    run("python3 --version")
 
 def clone(command):
     run("git clone https://github.com/macromantic/macroweb.git")
