@@ -38,7 +38,8 @@ if [ ! -f '/usr/local/bin/python3' ]; then
    ln -s /usr/local/bin/python3.7 /usr/local/bin/python3
 fi
 
-pip3 install django --user
+pip3 install --upgrade pip
+pip3 install django
 
 # Configure Vagrant Security
 sed -i "s/PasswordAuthentication no/PasswordAuthentication yes/g" /etc/ssh/sshd_config

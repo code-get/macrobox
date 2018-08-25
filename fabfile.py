@@ -17,5 +17,8 @@ def osinfo():
 def pyversion():
     run("python3 --version")
 
+def djangoversion():
+    run("python3 -m django --version")
+
 def clone(command):
     run("git clone https://github.com/macromantic/macroweb.git")
