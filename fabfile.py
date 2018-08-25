@@ -11,6 +11,9 @@ env.password = "vagrant"
 def cmd(command):
     run(command)
 
+def scmd(command):
+    sudo(command)
+
 def osinfo():
     run("cat /etc/redhat-release")
 

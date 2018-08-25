@@ -40,6 +40,7 @@ fi
 
 pip3 install --upgrade pip
 pip3 install django
+pip3 install pytz
 
 # Configure Vagrant Security
 sed -i "s/PasswordAuthentication no/PasswordAuthentication yes/g" /etc/ssh/sshd_config
