@@ -5,6 +5,7 @@ function installPython() {
 
     yum install -y gcc gcc-c++ make 
     yum install -y zlib-devel openssl-devel libffi-devel
+    yum install -y sqlite-devel
     yum install -y python2 python2-devel
     yum install -y wget 
 
