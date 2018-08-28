@@ -2,11 +2,13 @@
 
 function installPython() {
     pyver=$1
+    pipver=$2
 
     yum install -y gcc gcc-c++ make 
     yum install -y zlib-devel openssl-devel libffi-devel
     yum install -y sqlite-devel
     yum install -y python2 python2-devel
+    yum install -y sqlite-devel
     yum install -y wget 
 
     pythondir="Python-$pyver"
@@ -14,7 +16,7 @@ function installPython() {
     if [ ! -d "/usr/src/$pythondir" ]; then
         $olddir = `pwd`
         cd /usr/src
-        wget "https://www.python.org/ftp/python/3.7.0/$pythondir.tgz"
+        wget "https://www.python.org/ftp/python/$pyver/$pythondir.tgz"
         tar -zxf "$pythondir.tgz"
         cd "$pythondir"
         ./configure
@@ -27,11 +29,11 @@ function installPython() {
     fi
 
     if [ ! -f '/usr/local/bin/pip3' ]; then
-        ln -s /usr/local/bin/pip3.7 /usr/local/bin/pip3
+        ln -s /usr/local/bin/pip$pipver /usr/local/bin/pip3
     fi 
 
     if [ ! -f '/usr/local/bin/python3' ]; then
-        ln -s /usr/local/bin/python3.7 /usr/local/bin/python3
+        ln -s /usr/local/bin/python$pipver /usr/local/bin/python3
     fi
 
     pip3 install --upgrade pip
@@ -40,12 +42,13 @@ function installPython() {
 
 function installVIM() {
    yum install -y vim 
-   echo 'set number' > "$HOME/.vimrc"
-   echo 'syntax on' >> "$HOME/.vimrc"
+   echo 'set number' > '/home/vagrant/.vimrc'
+   echo 'syntax on' >> '/home/vagrant/.vimrc'
 }
 
 function installGit() {
    gitver=$1
+
    yum install -y gcc autoconf libcurl-devel expat-devel
    yum install -y gettext-devel openssl-devel perl-devel 
    yum install -y zlib-devel xmlto util-linux docbook-utils
@@ -55,16 +58,18 @@ function installGit() {
    cpanm Fatal
    cpanm XML::SAX
 
-   olddir=`pwd`
-   mkdir -p /usr/local/downloads
-   cd /usr/local/downloads
-   wget "https://www.kernel.org/pub/software/scm/git/git-$gitver.tar.gz"
-   tar -zxf "git-$gitver.tar.gz"
-   cd "git-$gitver"
-   make configure
-   ./configure --prefix=/usr
-   make all doc
-   make install install-doc install-html
+   #if [ ! -f '/usr/bin/git' ]; then
+      olddir=`pwd`
+      mkdir -p /usr/local/downloads
+      cd /usr/local/downloads
+      wget "https://www.kernel.org/pub/software/scm/git/git-$gitver.tar.gz"
+      tar -zxf "git-$gitver.tar.gz"
+      cd "git-$gitver"
+      make configure
+      ./configure --prefix=/usr
+      make all doc
+      make install install-doc install-html
+   #fi
 }
 
 function allowPasswordAuth() {
@@ -77,5 +82,5 @@ yum update -y
 
 allowPasswordAuth
 installVIM
-installPython "3.7.0"
-installGit "2.16.2"
+installPython "3.7.0" "3.7"
+installGit "2.18.0"
