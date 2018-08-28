@@ -1,18 +1,20 @@
 # MACROBox Development Environment
 Copyright 2018 (c) MACROmantic
 Written by: christopher landry <macromantic (at) outlook.com>
-Version: 0.0.4
+Version: 0.0.5
 Date: 22-august-2018
 License: GPLv3
 
 This is the official Development workstation based on CentOS provided by a Vagrant box.
 
-* See: [Chromium OS Developer Guide](https://chromium.googlesource.com/chromiumos/docs/+/master/developer_guide.md)
-
-### Requirements
+### Requirements (Host)
 Vagrant 2.1.2
 Fabric 1.14.0
 VirtualBox 5.2.10
+Terraform 0.11.8 
+
+### Requirements (Guest)
+Heroku CLI
 
 ## Instructions
 
@@ -67,4 +69,7 @@ $ vagrant provision
 
 ### Version 0.0.4
 - Added Git
+
+### Version 0.0.5
+- Added Terraform install script
 

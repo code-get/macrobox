@@ -37,7 +37,7 @@ function installPython() {
     fi
 
     pip3 install --upgrade pip
-    pip3 install django
+    pip3 install django-heroku
 }
 
 function installVIM() {
