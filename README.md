@@ -60,16 +60,3 @@ $ vagrant provision
 - Initial check-in
 - Build with centos/7 Vagrant box on virtualbox
 
-### Version 0.0.2
-- Added Python 3.7
-- Added fabfile
-
-### Version 0.0.3
-- Added Django
-
-### Version 0.0.4
-- Added Git
-
-### Version 0.0.5
-- Added Terraform install script
-
