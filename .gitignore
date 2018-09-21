@@ -1,9 +1,7 @@
 *.terraform
 *.vagrant
-www/*
-cgi-bin/*
 
 !www/.gitkeep
 !www/index.html
-!cgi-bin/.gitkeep
-!cgi-bin/welcome.cgi
+!www/cgi-bin/.gitkeep
+!www/cgi-bin/index.cgi
