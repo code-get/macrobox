@@ -55,10 +55,6 @@ function configNGINX() {
 	mkdir -p $webroot
 	chown -R root:root $webroot
 	chmod -R 755 $webroot
-
-	indexfile="index.html"
-	echo "Creating HTML index $indexfile"
-	echo "<!DOCTYPE html><head><title>$hostname - sample</title></head><body><h1>Welcome to $hostname</h1></    body><html>" > "$webroot/$indexfile"
 	chcon -R -h system_u:object_r:httpd_sys_content_t:s0 $webroot
 
 	nginxconf=/etc/nginx/nginx.conf

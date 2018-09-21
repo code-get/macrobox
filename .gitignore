@@ -4,4 +4,6 @@ www/*
 cgi-bin/*
 
 !www/.gitkeep
+!www/index.html
 !cgi-bin/.gitkeep
+!cgi-bin/welcome.cgi
