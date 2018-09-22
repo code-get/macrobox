@@ -3,5 +3,5 @@
 
 !www/.gitkeep
 !www/index.html
-!www/cgi-bin/.gitkeep
-!www/cgi-bin/index.pl
+!www/app/.gitkeep
+!www/app/index.pl
