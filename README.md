@@ -1,20 +1,15 @@
 # MACROBox Development Environment
 Copyright 2018 (c) MACROmantic
 Written by: christopher landry <macromantic (at) outlook.com>
-Version: 0.0.5
+Version: 1.0.0
 Date: 22-august-2018
 License: GPLv3
 
-This is the official Development workstation based on CentOS provided by a Vagrant box.
+This is the official Macromantic Development workstation based on CentOS provided by a Vagrant box.
 
 ### Requirements (Host)
 Vagrant 2.1.2
-Fabric 1.14.0
 VirtualBox 5.2.10
-Terraform 0.11.8 
-
-### Requirements (Guest)
-Heroku CLI
 
 ## Instructions
 
@@ -28,12 +23,6 @@ $ vagrant up
 
 ```
 $ vagrant ssh
-```
-
-### Send Commands over Fabric
-
-```
-$ fab cmd:"cat /etc/redhat-release"
 ```
 
 ### Configure Macroweb Development Project
@@ -55,8 +44,3 @@ You can reprovision if you want to modify the configuration with
 ```
 $ vagrant provision
 ```
-
-### Version 0.0.1
-- Initial check-in
-- Build with centos/7 Vagrant box on virtualbox
-
