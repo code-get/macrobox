@@ -12,7 +12,8 @@ print <<END_OF_PAGE;
    <title>Welcome</title>
 </head>
 <body>
-   <h1>Welcome</h1>
+   <h1>Welcome from $admin_email</h1>
+   <p>The time is: $time on $remote_id</p>
 </body>
 </html>
 END_OF_PAGE
