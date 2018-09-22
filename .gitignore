@@ -1,5 +1,6 @@
 *.terraform
 *.vagrant
+www/*
 
 !www/.gitkeep
 !www/index.html
