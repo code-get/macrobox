@@ -4,4 +4,4 @@
 !www/.gitkeep
 !www/index.html
 !www/cgi-bin/.gitkeep
-!www/cgi-bin/index.cgi
+!www/cgi-bin/index.pl
