@@ -6,7 +6,7 @@ function installVIM() {
    echo 'syntax on' >> '/home/vagrant/.vimrc'
 }
 
-function installPerl() {
+function installDevLibs() {
    yum install -y epel-release;
    yum install -y git;
    yum install -y wget
@@ -18,8 +18,6 @@ function installPerl() {
 
 function installNGINX() {
 	yum install -y wget
-	useradd 'www-data'
-
 	sh -c 'echo -e "[nginx]\nname=nginix repo\nbaseurl=http://nginx.org/packages/rhel/7/x86_64/\ngpgcheck=1\nenabled=1" > /etc/yum.repos.d/nginx.repo'
 
 	wget https://nginx.org/keys/nginx_signing.key
@@ -34,20 +32,15 @@ function configNGINX() {
 	hostsfile=$2
 
 	echo "Creating Host $hostname"
-	hostsfile=/etc/hosts
-	echo "127.0.0.1   $hostname" >> $hostsfile
 	webroot=/vagrant/www
 	echo "Creating Web Root $webroot"
 	mkdir -p $webroot
-	chown -R www-data:www-data $webroot
+	chown -R nginx:nginx $webroot
 	chmod -R 755 $webroot
 	chcon -R -h system_u:object_r:httpd_sys_content_t:s0 $webroot
 
 	nginxconf=/etc/nginx/nginx.conf
 	cat /vagrant/resources/nginx-perl.conf >$nginxconf
-
-	#nginxsvc=/usr/lib/systemd/system/nginx.service
-	#cat /vagrant/resources/nginx.service >$nginxsvc
 
 	echo "Reloading Nginx"
 	nginx -s reload
@@ -76,24 +69,12 @@ function installFastCGIWrap() {
 	/etc/init.d/spawn-fcgi start
 	
 	cp /usr/local/downloads/fcgiwrap/systemd/fcgiwrap.socket /var/run/.
-	chown www-data:www-data /var/run/fcgiwrap.socket
+	chown nginx:nginx /var/run/fcgiwrap.socket
 	chcon -h system_u:object_r:httpd_var_run_t:s0 /var/run/fcgiwrap.socket
-	
-	#fcgisvc=/usr/lib/systemd/system/fcgiwrap.service
-	#cat /vagrant/resources/fcgiwrap.service >$fcgisvc
-
-	#systemctl enable fcgiwrap
-	#systemctl start fcgiwrap
-}
-function allowPasswordAuth() {
-   # Configure Vagrant Security
-   sed -i "s/PasswordAuthentication no/PasswordAuthentication yes/g" /etc/ssh/sshd_config
-   systemctl start sshd
 }
 
-#allowPasswordAuth
-#installPerl
-#installNGINX
+installDevLibs
+installNGINX
+configNGINX
+installVIM
 installFastCGIWrap
-configNGINX 'macrobox' '/etc/hosts'
-#installVIM

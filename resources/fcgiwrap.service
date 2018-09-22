@@ -4,8 +4,8 @@ After=nss-user-lookup.target
 
 [Service]
 ExecStart=/usr/local/sbin/fcgiwrap
-User=www-data
-Group=www-data
+User=nginx
+Group=nginx
 
 [Install]
 Also=fcgiwrap.socket
