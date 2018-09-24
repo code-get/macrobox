@@ -3,6 +3,4 @@
 www/*
 
 !www/.gitkeep
-!www/index.html
-!www/app/.gitkeep
-!www/app/index.pl
+!www/index.pl
