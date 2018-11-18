@@ -1,6 +1,7 @@
 *.terraform
 *.vagrant
 www/*
+*.DS_Store
 
 !www/.gitkeep
 !www/index.pl
